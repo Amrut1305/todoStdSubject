@@ -40,7 +40,7 @@ export class StdFormComponent implements OnInit {
       fname: new FormControl('', [Validators.required, Validators.pattern(CustomRegex.onlyText)]),
       lname: new FormControl('', [Validators.required, Validators.pattern(CustomRegex.onlyText)]),
       email: new FormControl('', [Validators.required, Validators.pattern(CustomRegex.email)]),
-      contact: new FormControl('', [Validators.required]),
+      contact: new FormControl('', [Validators.required,Validators.pattern('^(?:\\+91[-\\s]?|0)?[6-9]\\d{9}$')]),
     })
   }
 

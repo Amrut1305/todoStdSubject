@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Itodo } from 'src/app/shared/model/todo';
 import { TodoService } from 'src/app/shared/service/todo.service';
 import { UuidService } from 'src/app/shared/service/uuid.service';
+import { CustomRegex } from 'src/app/shared/validators/regex';
 
 @Component({
   selector: 'app-todo-list',
@@ -25,7 +26,7 @@ export class TodoListComponent implements OnInit {
   }
   createTodoForm() {
     this.todoForm = new FormGroup({
-      title: new FormControl('', [Validators.required]),
+      title: new FormControl('', [Validators.required, Validators.pattern(CustomRegex.onlyText)]),
     })
   }
 
@@ -57,6 +58,10 @@ export class TodoListComponent implements OnInit {
       }
 
     }
+  }
+
+  get f(){
+    return this.todoForm.controls
   }
 
 }

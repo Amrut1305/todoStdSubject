@@ -2,6 +2,15 @@
     <mat-form-field appearance="fill" class="w-100">
         <mat-label>Todo Title</mat-label>
         <input matInput formControlName="title">
+
+        <mat-error *ngIf="f['title'].hasError('required') && f['title'].touched">
+            Title is required field
+        </mat-error>
+
+        <mat-error *ngIf="f['title'].hasError('pattern') && f['title'].dirty">
+            Only Characters are allowed
+        </mat-error>
+
     </mat-form-field>
     <button  mat-raised-button color="primary">{{isInEditMode? 'Update Todo': 'Add Todo'}}</button>
 </form>
