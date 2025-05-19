@@ -1,5 +1,5 @@
 
-<table class="table table-bordered">
+<table class="table table-bordered" *ngIf="stdData.length > 0; else nodata">
     <thead>
         <tr>
             <th>First Name</th>
@@ -21,3 +21,9 @@
         </tr>
     </tbody>
 </table>
+
+<ng-template #nodata>
+    <p class="text-danger">
+        No data to show
+    </p>
+</ng-template>
