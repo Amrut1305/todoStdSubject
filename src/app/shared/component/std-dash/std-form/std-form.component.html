@@ -1,0 +1,58 @@
+
+<form [formGroup]="stdForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field appearance="fill" class="w-100">
+        <mat-label>First name</mat-label>
+        <input matInput formControlName="fname">
+        <mat-error *ngIf="f['fname'].hasError('required') && f['fname'].touched">
+            First Name is required field
+        </mat-error>
+
+        <mat-error *ngIf="f['fname'].hasError('pattern') && f['fname'].dirty">
+            Only Characters are allowed
+        </mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Last name</mat-label>
+        <input matInput formControlName="lname">
+
+        <mat-error *ngIf="f['lname'].hasError('required') && f['lname'].touched">
+            Last Name is required field
+        </mat-error>
+
+        <mat-error *ngIf="f['lname'].hasError('pattern') && f['lname'].dirty">
+            Only Characters are allowed
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+
+        <mat-error *ngIf="f['email'].hasError('required') && f['email'].touched">
+            Email is required field
+        </mat-error>
+
+        <mat-error *ngIf="f['email'].hasError('pattern') && f['email'].dirty">
+            {{'Email pattern is wrong e.g ab@cd.com'}}
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Contact</mat-label>
+        <input matInput formControlName="contact">
+
+        <mat-error *ngIf="f['contact'].hasError('required') && f['contact'].touched">
+            contact is required field
+        </mat-error>
+
+        <mat-error *ngIf="f['contact'].hasError('pattern') && f['contact'].dirty">
+            {{'contact pattern is wrong e.g 9876543210'}}
+        </mat-error>
+    </mat-form-field>
+
+    <button  mat-raised-button color="primary">{{isInEditMode? 'Update Student': 'Add Student'}}</button>
+
+</form>

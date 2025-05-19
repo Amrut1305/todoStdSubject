@@ -1,0 +1,23 @@
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Edit</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let std of stdData">
+            <td>{{std.fname}}</td>
+            <td>{{std.lname}}</td>
+            <td>{{std.email}}</td>
+            <td>{{std.contact}}</td>
+            <td class="text-center"><mat-icon (click)="onEdit(std)">edit</mat-icon></td>
+            <td class="text-center"><mat-icon (click)="onRemove(std)">delete</mat-icon></td>
+        </tr>
+    </tbody>
+</table>
